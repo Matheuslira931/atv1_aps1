@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant PO as Product Owner
+    participant SM as Scrum Master
+    participant Dev as Desenvolvedor
+    participant Tarefa as Tarefa
+    participant Projeto as Projeto
+
+    PO->>Projeto: Adiciona Tarefa ao Backlog
+    Projeto->>Tarefa: Cria Tarefa
+    Tarefa-->>Projeto: Tarefa criada
+    Projeto->>SM: Notifica Scrum Master
+    SM->>Projeto: Cria Sprint
+    Projeto->>SM: Adiciona Tarefa à Sprint
+    SM->>Tarefa: Atribui Tarefa a Desenvolvedor
+    Tarefa-->>Dev: Tarefa atribuída
+    Dev->>Tarefa: Atualiza Status da Tarefa
+    Tarefa-->>Projeto: Status Atualizado
+    Projeto->>PO: Notifica Atualização

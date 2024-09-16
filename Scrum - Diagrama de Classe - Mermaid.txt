@@ -1,0 +1,59 @@
+classDiagram
+    Usuario <|-- Desenvolvedor
+    Usuario <|-- ScrumMaster
+    Usuario <|-- ProductOwner
+    Projeto "1" *-- "0..*" Sprint
+    Projeto "1" *-- "1" Backlog
+    Sprint "1" *-- "0..*" Tarefa
+    Backlog "1" *-- "0..*" Tarefa
+    Projeto "0..*" *-- "0..*" Usuario
+
+    class Usuario {
+        -String nome
+        -String email
+        -String papel
+    }
+
+    class Desenvolvedor {
+    }
+
+    class ScrumMaster {
+    }
+
+    class ProductOwner {
+    }
+
+    class Tarefa {
+        -String descricao
+        -String status
+        -int estimativa_horas
+        -int horas_trabalhadas
+        +atribuir_responsavel(Usuario usuario)
+        +atualizar_status(String status)
+        +registrar_trabalho(int horas)
+    }
+
+    class Sprint {
+        -int numero
+        -int duracao_dias
+        -ScrumMaster scrum_master
+        -ProductOwner product_owner
+        -Date data_inicio
+        -Date data_fim
+        +adicionar_tarefa(Tarefa tarefa)
+        +tempo_restante() int
+    }
+
+    class Backlog {
+        +adicionar_tarefa(Tarefa tarefa)
+        +remover_tarefa(Tarefa tarefa)
+        +exibir_tarefas_pendentes()
+    }
+
+    class Projeto {
+        -String nome
+        -Backlog backlog
+        +criar_sprint(int numero, int duracao_dias, ScrumMaster sm, ProductOwner po) Sprint
+        +adicionar_membro(Usuario usuario)
+        +gerar_relatorio_progresso()
+    }

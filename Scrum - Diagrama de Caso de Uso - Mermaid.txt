@@ -1,0 +1,15 @@
+flowchart TD 
+    actor_SM(["Scrum Master"]) --> node1["Criar Sprint"]
+    actor_SM --> node2["Adicionar Tarefa à Sprint"]
+    actor_SM --> node3["Gerar Relatório de Progresso"]
+    
+    actor_PO(["Product Owner"]) --> node4["Priorizar Tarefas no Backlog"]
+    actor_PO --> node5["Visualizar Progresso do Projeto"]
+    
+    actor_Dev(["Desenvolvedor"]) --> node6["Atribuir-se à Tarefa"]
+    actor_Dev --> node7["Atualizar Status da Tarefa"]
+    actor_Dev --> node8["Registrar Horas Trabalhadas"]
+    
+    node1 --> node2
+    node2 --> node7
+    node8 --> node7

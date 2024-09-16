@@ -1,0 +1,17 @@
+flowchart TD
+    A[Início do Sprint] --> B{Planejamento do Sprint}
+    B -->|Definir Tarefas| C[Adicionar Tarefas ao Sprint]
+    C --> D[Designar Responsáveis]
+    D --> E{Início do Trabalho}
+    E --> F{Desenvolver Tarefas}
+    F --> G{Revisão das Tarefas}
+    G -->|Concluído| H[Marcar Tarefa como Concluída]
+    G -->|Em Progresso| F
+    H --> I{Sprint Review}
+    I --> J[Sprint Retrospective]
+    J --> K[Encerrar Sprint]
+    K --> L[Fim do Sprint]
+    E --> M{Monitorar Progresso}
+    M --> F
+    M --> N{Ajustar Tarefas}
+    N --> F
